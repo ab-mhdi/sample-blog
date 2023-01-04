@@ -1,0 +1,12 @@
+{% extends 'weblog/list.html' %}
+
+
+
+{% block previous_page %}
+    <a class="btn btn-primary text-uppercase m-3 "
+       href="{% url 'weblog:home' page_obj.previous_page_number %}">پست های جدیدتر &#8594</a>
+{% endblock %}
+{% block next_page %}
+    <a class="btn btn-primary text-uppercase m-3"
+       href="{% url 'weblog:home' page_obj.next_page_number %}">پست های قدیمی‌تر &#8592</a>
+{% endblock %}

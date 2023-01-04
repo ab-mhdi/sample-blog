@@ -1,0 +1,27 @@
+{% extends 'weblog/main.html' %}
+{% load static %}
+{% load jalali_tags %}
+{% block main %}
+    <header class="masthead" style="background-image: url('{{ article.thumbnail.url }} ')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>{{object.title}}</h1>
+                        <span class="subheading">مقاله شماره {{object.id}}</span>
+                        <time>{{object.publish|to_jalali:'%y/%m/%d _ %H:%M:%S'}}</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+<article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7 text-">
+                        <p>{{ object.description|striptags|linebreaks }}</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+{% endblock %}

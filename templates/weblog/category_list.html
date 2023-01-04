@@ -1,0 +1,19 @@
+{% extends 'weblog/list.html' %}
+{% block header %}
+    <h3 class="alert alert-primary text-center">دسته‌بندی:{{category.title}}</h3>
+{% endblock %}
+
+{% block main_header %}
+    {% if not object_list %}
+        <h2 class="pooch">هیچ مقاله‌ای برای این دسته بندی وجود ندارد</h2>
+    {% endif %}
+{% endblock %}
+
+{% block previous_page %}
+    <a class="btn btn-primary text-uppercase m-3 "
+       href="{% url 'weblog:category' category.slug page_obj.previous_page_number %}">پست های جدیدتر &#8594</a>
+{% endblock %}
+{% block next_page %}
+<a class="btn btn-primary text-uppercase m-3"
+                       href="{% url 'weblog:category' category.slug page_obj.next_page_number %}">پست های قدیمی‌تر &#8592</a>
+{% endblock %}

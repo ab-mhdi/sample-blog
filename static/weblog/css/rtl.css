@@ -1,0 +1,102 @@
+@font-face {
+    font-family: Sahel;
+    src: url('/static/fonts/Sahel.eot');
+    src: url('/static/fonts/Sahel.eot?#iefix') format('embedded-opentype'),
+    url('/static/fonts/Sahel.woff2') format('woff2'),
+    url('/static/fonts/Sahel.woff') format('woff'),
+    url('/static/fonts/Sahel.ttf') format('truetype');
+}
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 btn, .btn{
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-family: Sahel;
+  font-weight: 800;
+  line-height: 1.2;
+  font-size: medium;
+}
+#mainNav {
+  font-family: Sahel;
+}
+
+body{
+    direction: rtl;
+    text-align: right;
+    /*font-family: Sahel !important;*/
+    font-size: small;
+}
+
+.navbar-nav.ms-auto.py-4.py-lg-0 {
+  margin-left: initial !important;
+  margin-right: auto;
+}
+
+.post-meta {
+  text-align: left;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  font-family: monospace;
+}
+
+ul {
+  /*background: darkorange;*/
+  list-style: -moz-element();
+  margin: 0;
+  padding-left: 0;
+}
+
+li {
+  /*color: #fff;*/
+  /*background: darkorange;*/
+  display: block;
+  float: left;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+li a {
+  color: #fff;
+}
+
+li:hover {
+  background: slategray;
+  cursor: pointer;
+}
+
+ul li ul {
+  background: gray;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  left: 0;
+  display: none;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+ul li ul li {
+  clear: both;
+  width: 100%;
+}
+nav ul ul ul li {
+      background: gray;
+	position: relative;
+	top:-100px;
+	right:116px;
+}

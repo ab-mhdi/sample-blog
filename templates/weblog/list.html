@@ -1,0 +1,63 @@
+{% extends 'weblog/main.html' %}
+{% load static %}
+{% load jalali_tags %}
+
+
+{% block main %}
+<header class="masthead" style="background-image: url('{% static 'weblog/assets/img/home-bg.jpg' %}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>مهدی عابدینی</h1>
+                    <span class="subheading">یک وبلاگ نمونه </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+            {% block header %}
+            {% endblock %}
+                {% block main_header %}
+                {% endblock %}
+                {% for article in object_list %}
+                    <div class="post-preview">
+                        <a href="{% url 'weblog:detail' article.slug %}">
+                            <h2 class="post-title">{{ article.title }}</h2>
+                            <h3 class="post-subtitle">{{ article.description|safe|truncatewords:25}}</h3>
+                        </a>
+                        <p class="post-meta">
+                            نوشته شده توسط
+                            <a href="{% url 'weblog:author' article.author %}">{{ article.author.get_full_name }}</a>
+                            {{ article.publish|to_jalali:'%y/%m/%d _ %H:%M:%S' }}
+                        </p>
+                        <p>
+                            {% for cat in article.cat_pub.all %}
+                                <a href="{% url 'weblog:category' cat.slug %}">#{{cat}}</a>
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                {% endfor %}
+                <!-- Pager-->
+                {% if is_paginated %}
+                <div class="d-flex justify-content-end mb-4">
+                    {% if page_obj.has_previous %}
+                        {% block previous_page %}
+                        {% endblock %}
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                        {% block next_page %}
+                        {% endblock %}
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

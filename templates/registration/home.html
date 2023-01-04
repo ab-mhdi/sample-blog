@@ -1,0 +1,50 @@
+{% extends 'registration/base.html' %}
+{% load jalali_tags %}
+{% block title %}{% block header_title %}
+    لیست مقالات
+{% endblock %}{% endblock %}
+{% block main %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>عنوان مقاله</th>
+                        <th>تصویر بندانگشتی</th>
+                        <th>دسته‌بندی</th>
+                        <th>نویسنده</th>
+                        <th>خلاصه مقاله</th>
+                        <th>تاریخ انتشار</th>
+                        <th>وضعیت</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for article in object_list %}
+                        <tr>
+                            <td>{{ article.title }}</td>
+                            <td><img src="{{ article.thumbnail.url }}" width="120" height="90"</td>
+                            <td>{{ article.categories }}</td>
+                            <td>{{ article.author }}</td>
+                            <td>{{ article.description|striptags|truncatewords:35 }}</td>
+                            <td>{{ article.publish|to_jalali:'%y/%m/%d _ %H:%M:%S' }}</td>
+                            <td>{% if article.status == 'p' %}
+                                <p class="badge badge-success">منتشر شد</p>
+                                <a target="_blank" href="{% url 'weblog:detail' article.slug %}" class="badge badge-primary">مشاهده مقاله در سایت</a>
+                                {% else %}
+                                    <p class="badge badge-danger">پیش‌نویس</p>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+{% endblock %}
