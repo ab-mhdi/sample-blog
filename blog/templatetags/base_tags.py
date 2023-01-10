@@ -6,10 +6,10 @@ register = template.Library()
 
 @register.simple_tag
 def title():
-    return "django weblog"
+    return "django blog"
 
 
-@register.inclusion_tag('weblog/partials/navbar.html')
+@register.inclusion_tag('blog/partials/navbar.html')
 def navbar_cat():
     return {
         'category': Category.objects.filter(status=True)

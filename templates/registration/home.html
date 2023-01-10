@@ -32,7 +32,7 @@
                             <td>{{ article.publish|to_jalali:'%y/%m/%d _ %H:%M:%S' }}</td>
                             <td>{% if article.status == 'p' %}
                                 <p class="badge badge-success">منتشر شد</p>
-                                <a target="_blank" href="{% url 'weblog:detail' article.slug %}" class="badge badge-primary">مشاهده مقاله در سایت</a>
+                                <a target="_blank" href="{% url 'blog:detail' article.slug %}" class="badge badge-primary">مشاهده مقاله در سایت</a>
                                 {% else %}
                                     <p class="badge badge-danger">پیش‌نویس</p>
                                 {% endif %}

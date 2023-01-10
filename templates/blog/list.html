@@ -1,10 +1,10 @@
-{% extends 'weblog/main.html' %}
+{% extends 'blog/main.html' %}
 {% load static %}
 {% load jalali_tags %}
 
 
 {% block main %}
-<header class="masthead" style="background-image: url('{% static 'weblog/assets/img/home-bg.jpg' %}')">
+<header class="masthead" style="background-image: url('{% static 'blog/assets/img/home-bg.jpg' %}')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -26,18 +26,18 @@
                 {% endblock %}
                 {% for article in object_list %}
                     <div class="post-preview">
-                        <a href="{% url 'weblog:detail' article.slug %}">
+                        <a href="{% url 'blog:detail' article.slug %}">
                             <h2 class="post-title">{{ article.title }}</h2>
                             <h3 class="post-subtitle">{{ article.description|safe|truncatewords:25}}</h3>
                         </a>
                         <p class="post-meta">
                             نوشته شده توسط
-                            <a href="{% url 'weblog:author' article.author %}">{{ article.author.get_full_name }}</a>
+                            <a href="{% url 'blog:author' article.author %}">{{ article.author.get_full_name }}</a>
                             {{ article.publish|to_jalali:'%y/%m/%d _ %H:%M:%S' }}
                         </p>
                         <p>
                             {% for cat in article.cat_pub.all %}
-                                <a href="{% url 'weblog:category' cat.slug %}">#{{cat}}</a>
+                                <a href="{% url 'blog:category' cat.slug %}">#{{cat}}</a>
                             {% endfor %}
                         </p>
                     </div>

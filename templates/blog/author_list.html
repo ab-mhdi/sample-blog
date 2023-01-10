@@ -1,13 +1,13 @@
-{% extends 'weblog/list.html' %}
+{% extends 'blog/list.html' %}
 {% block header %}
     <h3 class="alert alert-primary text-center">نویسنده:{{author.get_full_name}}</h3>
 {% endblock %}
 
 {% block previous_page %}
     <a class="btn btn-primary text-uppercase m-3 "
-       href="{% url 'weblog:author' author.username page_obj.previous_page_number %}">پست های جدیدتر &#8594</a>
+       href="{% url 'blog:author' author.username page_obj.previous_page_number %}">پست های جدیدتر &#8594</a>
 {% endblock %}
 {% block next_page %}
 <a class="btn btn-primary text-uppercase m-3"
-   href="{% url 'weblog:author' author.username page_obj.next_page_number %}">پست های قدیمی‌تر &#8592</a>
+   href="{% url 'blog:author' author.username page_obj.next_page_number %}">پست های قدیمی‌تر &#8592</a>
 {% endblock %}

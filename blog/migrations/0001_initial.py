@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(max_length=100, unique=True, verbose_name='آدرس دسته\u200cبندی')),
                 ('status', models.BooleanField(default=True, verbose_name='وضعیت نمایش')),
                 ('position', models.IntegerField(verbose_name='جایگاه')),
-                ('parent', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='children', to='weblog.category', verbose_name='زیردسته')),
+                ('parent', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='children', to='blog.category', verbose_name='زیردسته')),
             ],
             options={
                 'verbose_name': 'دسته\u200cبندی',
@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
                 ('create', models.DateTimeField(auto_now_add=True)),
                 ('update', models.DateTimeField(auto_now=True)),
                 ('status', models.CharField(choices=[('p', 'منتشر شده'), ('d', 'پیش\u200cنویس')], max_length=1, verbose_name='وضیعت انتشار')),
-                ('category', models.ManyToManyField(related_name='article', to='weblog.category')),
+                ('category', models.ManyToManyField(related_name='article', to='blog.category')),
             ],
             options={
                 'verbose_name': 'مقاله',

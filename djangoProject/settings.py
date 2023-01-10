@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jalali_date',
-    'weblog.apps.WeblogConfig',
+    'blog.apps.WeblogConfig',
     'account.apps.AccountConfig',
     'widget_tweaks',
     'crispy_forms',

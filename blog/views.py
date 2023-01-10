@@ -17,10 +17,10 @@ from django.views.generic.detail import DetailView
 #     context = {
 #         'articles': article,
 #     }
-#     return render(request, 'weblog/article_list.html', context)
+#     return render(request, 'blog/article_list.html', context)
 class ArticleList(ListView):
     # model = Article
-    # template_name = 'weblog.login.html'
+    # template_name = 'blog.login.html'
     # context_object_name = "articles"
     queryset = Article.objects.published()
     paginate_by = 3
@@ -36,7 +36,7 @@ class ArticleDetail(DetailView):
 #     context = {
 #         'article': get_object_or_404(Article, slug=slug)
 #     }
-#     return render(request, 'weblog/article_detail.html', context)
+#     return render(request, 'blog/article_detail.html', context)
 
 
 # def category(request, slug, page=1):
@@ -48,10 +48,10 @@ class ArticleDetail(DetailView):
 #         'category': category,
 #         'articles': articles,
 #     }
-#     return render(request, 'weblog/category_list.html', context)
+#     return render(request, 'blog/category_list.html', context)
 class CategoryList(ListView):
     paginate_by = 3
-    template_name = 'weblog/category_list.html'
+    template_name = 'blog/category_list.html'
 
     def get_queryset(self):
         global category
@@ -66,7 +66,7 @@ class CategoryList(ListView):
 
 class AuthorList(ListView):
     paginate_by = 3
-    template_name = 'weblog/author_list.html'
+    template_name = 'blog/author_list.html'
 
     def get_queryset(self):
         global author

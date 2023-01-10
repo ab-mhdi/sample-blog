@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import ArticleList, ArticleDetail, CategoryList, AuthorList
 
-app_name = "weblog"
+app_name = "blog"
 urlpatterns = [
     path('', ArticleList.as_view(), name="home"),
     path('page/<int:page>', ArticleList.as_view(), name="home"),
